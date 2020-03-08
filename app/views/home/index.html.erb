@@ -31,3 +31,10 @@
   <br>
   <div  class="text-center"><button type="submit" class="btn btn-default" style="background-color: #007bff;">Generate</button></div>
 </div>
+
+<%= form_tag home_generate_numbers_path do |f| %>
+  <%= number_field_tag :country_code, nil, min: 1 %>
+  <%= number_field_tag :prefix, nil, min: 1 %>
+  <%= number_field_tag :number_of_time, nil, min: 1  %>
+  <%= submit_tag %>
+<% end %>

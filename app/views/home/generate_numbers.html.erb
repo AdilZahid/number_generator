@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand navbar-dark bg-primary"> <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"> <a class="nav-link" href="#">Mobile Number Generator <span class="sr-only">(current)</span></a> </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0"> </form>
+  </div>
+</nav>
+<div class="container">
+  <h2>Generated Numbers</h2>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Country Code: <%= params[:country_code] %></th>
+        <th>Prefix: <%= params[:prefix] %></th>
+        <th>Number of Time: <%= params[:number_of_time] %></th>
+      </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<div class="list-group">
+  <% @number_array.each do |value|%>
+    <a class="list-group-item"><%= value %></a>
+  <% end %>
+</div>
