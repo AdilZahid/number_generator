@@ -5,14 +5,14 @@ class HomeController < ApplicationController
 
   def generate_numbers
 
-    country_code = params[:country_code].to_i
+    country_code = params[:country_code]
     prefix = params[:prefix]
     number_of_time = params[:number_of_time].to_i
     next_init = rand(111111...999999)
     counter = 0
     @number_array = []
     while counter < number_of_time 
-      @number_array.push((prefix + next_init.to_s).to_i)
+      @number_array.push((country_code + prefix + next_init.to_s).to_i)
       next_init += 1
       counter += 1
     end

@@ -10,31 +10,38 @@
 <div class="container">
   <h2>Number Generator</h2>
   <p>Generate Numbers Over Country Codes And Prefixes.</p>
-  <form class="form-inline" action="/action_page.php">
-    <div class="form-group">
-      <label for="email">Country: &ensp;</label>
-      <input type="email" class="form-control" id="email" placeholder="Country Code" name="email">
+    <%= form_tag home_generate_numbers_path do %>
+    <div class="form-inline">
+      <div class="form-group">
+        <label for="country code">Country: &ensp;</label>
+        &ensp;<%= number_field_tag :country_code, nil, min: 1, class: "form-control", placeholder: "Enter Country Code", id: "country_code", name:"country_code"%>
+      </div>
       &ensp;
+      <div class="form-group">
+        <label for="prefix">Prefix: &ensp;</label>
+        <%= number_field_tag :prefix, nil, min: 1, class: "form-control", placeholder: "Enter First 5 Prefix", id: "prefix", name:"prefix" %>
+        &ensp;
+      </div>
+      <div class="form-group">
+        <label for="number_of_time">Total Numbers To Generate: &ensp;</label>
+        <%= number_field_tag :number_of_time, nil, min: 1, class: "form-control", placeholder: "0", id: "number_of_time", name:"number_of_time"%>
+        &ensp;
+      </div>
     </div>
-    <div class="form-group">
-      <label for="pwd">Prefix: &ensp;</label>
-      <input type="email" class="form-control" id="pwd" placeholder="Prefix" name="pwd">
-      &ensp;
-    </div>
-    <div class="form-group">
-      <label for="pwd">Total Number To Generate: &ensp;</label>
-      <input type="email" class="form-control" id="pwd" placeholder="0" name="pwd">
-      &ensp;
-    </div>
-  </form>
   <br>
   <br>
-  <div  class="text-center"><button type="submit" class="btn btn-default" style="background-color: #007bff;">Generate</button></div>
+  <div style="text-align:center">
+    <%= submit_tag("Generate", :class=>"btn btn-default", :style => "background-color: #007bff;" ) %>
+  </div>
+  <% end %>
 </div>
 
-<%= form_tag home_generate_numbers_path do |f| %>
-  <%= number_field_tag :country_code, nil, min: 1 %>
-  <%= number_field_tag :prefix, nil, min: 1 %>
-  <%= number_field_tag :number_of_time, nil, min: 1  %>
-  <%= submit_tag %>
-<% end %>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $( button.table().container() ).removeClass( 'form-inline' );
+    } );
+</script>
+
+
+
+
