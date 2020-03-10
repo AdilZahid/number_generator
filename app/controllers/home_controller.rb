@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   def generate_numbers
 
     country_code = params[:country_code]
-    prefix = params[:prefix]
+    prefix = params[:prefix].to_i.to_s
     number_of_time = params[:number_of_time].to_i
     next_init = rand(111111...999999)
     counter = 0
