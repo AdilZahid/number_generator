@@ -1,47 +1,34 @@
 <nav class="navbar navbar-expand navbar-dark bg-primary"> <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
   <div class="collapse navbar-collapse" id="navbarsExample02">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active"> <a class="nav-link" href="#">Mobile Number Generator <span class="sr-only">(current)</span></a> </li>
+      <li class="nav-item active"> <a class="nav-link" href=<%= root_path%>>AutoBot Automation <span class="sr-only">(current)</span></a> </li>
     </ul>
     <form class="form-inline my-2 my-md-0"> </form>
   </div>
 </nav>
 
 <div class="container">
-  <h2>Number Generator</h2>
-  <p>Generate Numbers Over Country Codes And Prefixes.</p>
-    <%= form_tag home_generate_numbers_path do %>
-    <div class="form-inline">
-      <div class="form-group">
-        <label for="country code">Country: &ensp;</label>
-        &ensp;<%= number_field_tag :country_code, nil, min: 1, class: "form-control", placeholder: "Enter Country Code", id: "country_code", name:"country_code"%>
-      </div>
-      &ensp;
-      <div class="form-group">
-        <label for="prefix">Prefix: &ensp;</label>
-        <%= number_field_tag :prefix, nil, min: 1, class: "form-control", placeholder: "Enter First 5 Prefix", id: "prefix", name:"prefix" %>
-        &ensp;
-      </div>
-      <div class="form-group">
-        <label for="number_of_time">Total Numbers To Generate: &ensp;</label>
-        <%= number_field_tag :number_of_time, nil, min: 1, class: "form-control", placeholder: "0", id: "number_of_time", name:"number_of_time"%>
-        &ensp;
-      </div>
-    </div>
-  <br>
-  <br>
-  <div style="text-align:center">
-    <%= submit_tag("Generate", :class=>"btn btn-default", :style => "background-color: #007bff;" ) %>
-  </div>
-  <% end %>
+  <h2>Automate Task</h2>
+  <p style="color:red"><strong>AutoBot Runs Every Day between 0500-0900, and 1200-1600.</strong></p>
+  <p>Singapore Time (SGT). Offset UTC +8:00 hours</p>
+  <ul class="list-group">
+    <p>Today's Submitted Details.</p>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      ERIC
+      <span class="badge badge-primary badge-pill">AM</span>
+
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      EUGENE
+      <span class="badge badge-primary badge-pill">PM</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      FADZlI
+      <span class="badge badge-primary badge-pill">AM</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      FIRDAUS
+      <span class="badge badge-primary badge-pill">PM</span>
+    </li>
+  </ul>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $( button.table().container() ).removeClass( 'form-inline' );
-    } );
-</script>
-
-
-
-

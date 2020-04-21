@@ -5,17 +5,34 @@ class HomeController < ApplicationController
 
   def generate_numbers
 
-    country_code = params[:country_code]
-    prefix = params[:prefix].to_i.to_s
-    number_of_time = params[:number_of_time].to_i
-    next_init = rand(111111...999999)
-    counter = 0
-    @number_array = []
-    while counter < number_of_time 
-      @number_array.push((country_code + prefix + next_init.to_s).to_i)
-      next_init += 1
-      counter += 1
-    end
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://temptaking.ado.sg/group/MemberSubmitTemperature?groupCode=8d4f0d34b43753de82e747cb09679631&date=19%2F04%2F2020&meridies=AM&memberId=27916&temperature=37.2&pin=1212")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url)
+    request["content-type"] = 'application/json'
+    request["cache-control"] = 'no-cache'
+
+    response = http.request(request)
+    response_b = HTTParty.post('https://temptaking.ado.sg/group/MemberSubmitTemperature?groupCode=8d4f0d34b43753de82e747cb09679631&date=19%2F04%2F2020&meridies=AM&memberId=27916&temperature=37.2&pin=1212')
+    debugger
+    puts response.read_body
+    # country_code = params[:country_code]
+    # prefix = params[:prefix].to_i.to_s
+    # number_of_time = params[:number_of_time].to_i
+    # next_init = rand(111111...999999)
+    # counter = 0
+    # @number_array = []
+    # while counter < number_of_time
+    #   @number_array.push((country_code + prefix + next_init.to_s).to_i)
+    #   next_init += 1
+    #   counter += 1
+    # end
     #debugger
     #     # for ($counter = 0; $counter < $total; $counter++)
     #     # {
