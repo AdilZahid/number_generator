@@ -8,27 +8,58 @@
 </nav>
 
 <div class="container">
-  <h2>Automate Task</h2>
-  <p style="color:red"><strong>AutoBot Runs Every Day between 0500-0900, and 1200-1600.</strong></p>
-  <p>Singapore Time (SGT). Offset UTC +8:00 hours</p>
-  <ul class="list-group">
-    <p>Today's Submitted Details.</p>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      ERIC
-      <span class="badge badge-primary badge-pill">AM</span>
+  <div>
+    <h2>Automate Task</h2>
+    <p style="color:red"><strong>AutoBot Runs Every Day between 0500-0900, and 1200-1600.</strong></p>
+  </div>
+  <p>Today's Profile Submitted Details AM ( 5:AM To 9:AM ).</p>
+  <% am_p = @all_list.am_profile_with_ok %>
+  <% if am_p.count > 0 %>
+    <% am_p.each do |u| %>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= u.name %>
+          <span class="badge badge-primary badge-pill"><%= u.submit_status.capitalize %></span>
+        </li>
+      </ul>
+      <%end%>
+  <% else %>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        No Submission Yet !
+        <span class="badge badge-primary badge-pill">0</span>
+      </li>
+    </ul>
+  <% end %>
 
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      EUGENE
-      <span class="badge badge-primary badge-pill">PM</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      FADZlI
-      <span class="badge badge-primary badge-pill">AM</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      FIRDAUS
-      <span class="badge badge-primary badge-pill">PM</span>
-    </li>
-  </ul>
+  <br><p>Today's Profile Submitted Details PM ( 12:PM To 6:PM ).</p>
+  <% pm_p = @all_list.pm_profile_with_ok %>
+  <% if pm_p.count > 0 %>
+    <% pm_p.each do |u| %>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= u.name %>
+          <span class="badge badge-primary badge-pill"><%= u.submit_status.capitalize %></span>
+        </li>
+      </ul>
+    <%end%>
+  <% else %>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        No Submission Yet !
+        <span class="badge badge-primary badge-pill">0</span>
+      </li>
+    </ul>
+  <% end %>
+
 </div>
+
+<footer class="page-footer font-small blue fixed-bottom" style="background: #007bff;">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="color: black;">© 2020 Copyright:
+    <a href="mailto:adil3267@gmail.com" style="color: white;"> Contact Us </a>
+  </div>
+  <!-- Copyright -->
+
+</footer>

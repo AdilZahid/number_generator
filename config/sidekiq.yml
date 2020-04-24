@@ -1,0 +1,9 @@
+---
+development:
+  :concurrency: 10
+production:
+  :concurrency: 10
+:queues:
+  - am_jobs
+  - pm_jobs
+  - default

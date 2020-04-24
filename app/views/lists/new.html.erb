@@ -15,21 +15,27 @@
 
     <div class="row">
       <div class="form-inline">
-        <div class="col-sm-4 col-lg-4">
+        <div class="col-sm-3 col-lg-3">
           <div class="form-group">
             <label for="Name">Name:</label>
             <%= text_field_tag :name, "",class: "form-control", placeholder: "Name", id: "name", name:"list[name]"%>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
-            <label for="pin code">Pin Code:</label>
-            <%= number_field_tag :country_code, nil, min: 4, class: "form-control", placeholder: "Enter Pin Code", id: "pin_code", name:"list[pin_code]"%>
+            <label for="member Id">Member Id:</label>
+            <%= number_field_tag :member_id, nil, min: 5, class: "form-control", placeholder: "Enter Member Id", id: "member_id", name:"list[member_id]"%>
           </div>
         </div>
-        <div class="col-sm-4" style="margin-top: auto;">
+        <div class="col-sm-3">
           <div class="form-group">
-            <%= select_tag(:time_mode, options_for_select([ ['AM', "AM"], ['PM', "PM"]] ), {:class => 'form-control'})  %>
+            <label for="pin code">Pin Code:</label>
+            <%= number_field_tag :pin_code, nil, min: 4, class: "form-control", placeholder: "Enter Pin Code", id: "pin_code", name:"list[pin_code]"%>
+          </div>
+        </div>
+        <div class="col-sm-3" style="margin-top: auto;">
+          <div class="form-group">
+            <%= select_tag(:meridies, options_for_select([ ['AM', "AM"], ['PM', "PM"]] ), {:class => 'form-control'})  %>
           </div>
         </div>
       </div>
