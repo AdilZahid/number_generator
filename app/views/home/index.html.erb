@@ -10,9 +10,9 @@
 <div class="container">
   <div>
     <h2>Automate Task</h2>
-    <p style="color:red"><strong>AutoBot Runs Every Day between 0500-0900, and 1200-1600.</strong></p>
+    <p style="color:red;font-size: smaller;"><strong>AutoBot Runs Every Day between 0500-0900, and 1200-1600.</strong></p>
   </div>
-  <p>Today's Profile Submitted Details AM ( 5:AM To 9:AM ).</p>
+  <p style="font-size: smaller;">Today's Profile Submitted Details AM ( 5:AM To 9:AM ).</p>
   <% am_p = @all_list.am_profile_with_ok %>
   <% if am_p.count > 0 %>
     <% am_p.each do |u| %>
@@ -24,7 +24,7 @@
       </ul>
       <%end%>
   <% else %>
-    <ul class="list-group">
+    <ul class="list-group" style="font-size: smaller;">
       <li class="list-group-item d-flex justify-content-between align-items-center">
         No Submission Yet !
         <span class="badge badge-primary badge-pill">0</span>
@@ -32,11 +32,11 @@
     </ul>
   <% end %>
 
-  <br><p>Today's Profile Submitted Details PM ( 12:PM To 6:PM ).</p>
+  <br><p style="font-size: smaller;">Today's Profile Submitted Details PM ( 12:PM To 6:PM ).</p>
   <% pm_p = @all_list.pm_profile_with_ok %>
   <% if pm_p.count > 0 %>
     <% pm_p.each do |u| %>
-      <ul class="list-group">
+      <ul class="list-group" style="font-size: smaller;">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <%= u.name %>
           <span class="badge badge-primary badge-pill"><%= u.submit_status.capitalize %></span>
@@ -44,7 +44,26 @@
       </ul>
     <%end%>
   <% else %>
-    <ul class="list-group">
+    <ul class="list-group" style="font-size: smaller;">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        No Submission Yet !
+        <span class="badge badge-primary badge-pill">0</span>
+      </li>
+    </ul>
+  <% end %>
+  <br><p style="font-size: smaller;">Today's Profile Not Submitted Details.</p>
+  <% f_p = @all_list.today_failed_profile %>
+  <% if f_p.count > 0 %>
+    <% f_p.each do |u| %>
+      <ul class="list-group" style="font-size: smaller;">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= u.name %>
+          <span class="badge badge-primary badge-pill"><%= u.submit_status.capitalize %></span>
+        </li>
+      </ul>
+    <%end%>
+  <% else %>
+    <ul class="list-group" style="font-size: smaller;">
       <li class="list-group-item d-flex justify-content-between align-items-center">
         No Submission Yet !
         <span class="badge badge-primary badge-pill">0</span>
@@ -57,19 +76,19 @@
   </div>
   <div class="row">
     <div class="col-md-4 col-lg-2">
-      <a class="btn btn-primary btn-block" href=<%= new_list_path %>>Add Profile</a>
+      <a class="btn btn-primary btn-block" style="font-size: smaller;" href=<%= new_list_path %>>Add Profile</a>
     </div>
   </div>
   <br>
   <div class="row">
     <div class="col-md-4 col-lg-2">
-      <a class="btn btn-primary btn-block" href=<%= root_path %>>Refresh Stats</a>
+      <a class="btn btn-primary btn-block" style="font-size: smaller;" href=<%= root_path %>>Refresh Stats</a>
     </div>
   </div>
 
 </div>
 
-<footer class="page-footer font-small blue fixed-bottom" style="background: #007bff;">
+<footer class="page-footer font-small blue fixed-bottom" style="background: #007bff; font-size: smaller;" >
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3" style="color: black;">© 2020 Copyright:
