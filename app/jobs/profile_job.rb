@@ -2,10 +2,11 @@ class ProfileJob < ApplicationJob
   queue_as :am_jobs
 
   def perform(*args)
-    count = 10
-    c=0
+    count = 7
+    c=1
     while(count>c)
       puts " Profile #{DateTime.now}"
+      SubJob.set(wait: c.minutes).perform_later(c)
       c = c + 1
     end
     # users = List.where(meridies: "AM")
