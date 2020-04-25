@@ -4,6 +4,6 @@ profile_job:
   queue: am_jobs
 
 worker_job:
-  cron: "*/3 * * * *"
+  cron: "*/5 * * * *"
   class: "HardWorker"
   queue: pm_jobs

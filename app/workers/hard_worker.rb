@@ -2,11 +2,11 @@ class HardWorker
   include Sidekiq::Worker
   sidekiq_options queue: 'pm_jobs'
   def perform(*args)
-    count = 3
+    count = 4
     c=1
     while(count>c)
       puts " Hard #{DateTime.now}"
-      #SubHardJob.set(wait: c.minutes).perform_later(c)
+      SubHardJob.set(wait: c.minutes).perform_later(c)
       c = c + 1
     end
     # users = List.where(meridies: "AM")
