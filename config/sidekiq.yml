@@ -1,8 +1,4 @@
 ---
-development:
-  :concurrency: 5
-production:
-  :concurrency: 10
 :queues:
   - am_jobs
   - pm_jobs
