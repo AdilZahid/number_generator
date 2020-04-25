@@ -12,7 +12,7 @@
     <h2>Automate Task</h2>
     <p style="color:red;font-size: smaller;"><strong>AutoBot Runs Every Day between 0500-0900, and 1200-1600.</strong></p>
   </div>
-  <p style="font-size: smaller;">Today's Profile Submitted Details AM ( 5:AM To 9:AM ).</p>
+  <p style="font-size: smaller;">Today's Profile Submitted Details ( 5:AM To 9:AM ).</p>
   <% am_p = @all_list.am_profile_with_ok %>
   <% if am_p.count > 0 %>
     <% am_p.each do |u| %>
@@ -32,7 +32,7 @@
     </ul>
   <% end %>
 
-  <br><p style="font-size: smaller;">Today's Profile Submitted Details PM ( 12:PM To 6:PM ).</p>
+  <br><p style="font-size: smaller;">Today's Profile Submitted Details ( 12:PM To 6:PM ).</p>
   <% pm_p = @all_list.pm_profile_with_ok %>
   <% if pm_p.count > 0 %>
     <% pm_p.each do |u| %>
