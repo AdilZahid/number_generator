@@ -51,6 +51,7 @@
       </li>
     </ul>
   <% end %>
+  <%if false %>
   <br><p style="font-size: smaller;">Today's Profile Not Submitted Details.</p>
   <% f_p = @all_list.today_failed_profile %>
   <% if f_p.count > 0 %>
@@ -69,6 +70,7 @@
         <span class="badge badge-primary badge-pill">0</span>
       </li>
     </ul>
+  <% end %>
   <% end %>
   <br>
   <div class="d-flex justify-content-center">
