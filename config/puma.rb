@@ -40,7 +40,7 @@ before_fork do
 end
 
 on_worker_boot do
-    ActiveRecord::Base.establish_connection! if defined?(ActiveRecord)
+    ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 end
 
 on_restart do
