@@ -1,0 +1,2 @@
+class ProfileJobStatus < ApplicationRecord
+end
