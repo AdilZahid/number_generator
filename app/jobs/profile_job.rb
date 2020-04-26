@@ -10,7 +10,7 @@ class ProfileJob < ApplicationJob
     #   c = c + 1
     # end
     #
-    puts " Profile z #{DateTime.now}"
+    puts " Profile z #{Time.zone.now}"
     p1 =  ProfileJobStatus.find 1
     p2 =  ProfileJobStatus.find 2
     p1.update!(my_job_status: Time.zone.now)

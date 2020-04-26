@@ -14,11 +14,11 @@ class HardWorker
     #
     # 0 5 * * *
     # 0 12 * * *
+    puts " Hard z #{Time.zone.now}"
     p3 =  ProfileJobStatus.find 3
     p4 =  ProfileJobStatus.find 4
     p3.update!(my_job_status: Time.zone.now)
     p4.update!(my_job_status: Time.zone.now)
-    puts " Hard z #{DateTime.now}"
     users = List.submission_pm_profile
     if users.count > 0
       users.each do |u|
