@@ -19,7 +19,7 @@ class SubHardJob < ApplicationJob
     # request["content-type"] = 'application/json'
     # request["cache-control"] = 'no-cache'
     # response = http.request(request)
-    # u.update!(submit_status: response.read_body, updated_at: Time.zone.now)
+    # u.update!(submit_status: response.read_body, process_at: Time.zone.now)
     # Snippet For Automatically generate and submission of form
   end
 end

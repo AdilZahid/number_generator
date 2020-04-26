@@ -14,11 +14,15 @@ class HardWorker
     #
     # 0 5 * * *
     # 0 12 * * *
+    p3 =  ProfileJobStatus.find 3
+    p4 =  ProfileJobStatus.find 4
+    p3.update!(my_job_status: Time.zone.now)
+    p4.update!(my_job_status: Time.zone.now)
     puts " Hard z #{DateTime.now}"
     users = List.submission_pm_profile
     if users.count > 0
       users.each do |u|
-        en_time = rand(2..3)
+        en_time = rand(2..180)
         SubHardJob.set(wait: en_time.minutes).perform_later(u)
       end
     end
