@@ -12,24 +12,33 @@
     <h2>Automate Task</h2>
   </div>
   <p style="font-size: smaller;">List of Profiles.</p>
-  <% am_p = @lists %>
-  <% if am_p.count > 0 %>
-    <% am_p.each do |u| %>
-      <ul class="list-group" style="font-size: smaller;">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <%= u.name %> <span> Member id: <%= u.member_id.present? ? u.member_id : '00000' %></span>
-        </li>
-      </ul><br>
-    <%end%>
-  <% else %>
-    <ul class="list-group" style="font-size: smaller;">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        No Profile details !
-        <span class="badge badge-primary badge-pill">0</span>
-      </li>
-    </ul>
-  <% end %>
-
+  <%= success %>
+  <table class="table table-striped">
+    <% am_p = @lists %>
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Meridies</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% if am_p.count > 0 %>
+      <% am_p.each do |u| %>
+        <tr>
+          <td><%= u.name %></td>
+          <td><%= u.meridies %></td>
+          <td><td><%= link_to 'Delete', { action: :destroy, id: u.id }, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+        </tr>
+      <%end%>
+    <% else %>
+      <tr>
+        <td>No List Found !</td>
+        <td>No List Found !</td>
+        <td>No List Found !</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
 <div style="padding-top: 55px;">
